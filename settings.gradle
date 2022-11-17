@@ -1,0 +1,3 @@
+rootProject.name = 'dadosabertos'
+include 'batch'
+include 'gateway'
