@@ -19,8 +19,4 @@ public class SumPresidentEntity {
     public void setId(Long id) {
         this.id = id;
     }
-
-    @Repository
-    public static interface SumPresidentRepositoryImpl extends JpaRepository<SumPresidentEntity, Long> {
-    }
 }

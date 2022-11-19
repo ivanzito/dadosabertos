@@ -4,4 +4,8 @@ include 'metrics'
 include 'gateway:adapter'
 include 'gateway:port'
 include 'application'
+include 'metrics:port'
+findProject(':metrics:port')?.name = 'port'
+include 'metrics:adapter'
+findProject(':metrics:adapter')?.name = 'adapter'
 
