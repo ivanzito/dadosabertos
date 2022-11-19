@@ -1,9 +1,9 @@
-package br.com.tse.dadosabertos.batch.model;
+package br.com.tse.dadosabertos.gateway.port;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class SomatoriaPresitente{
+public class SumPresident {
     private Integer codigoPleito;
     private Integer codigoEleicao;
     private Integer codigoCargo;
@@ -295,7 +295,7 @@ public class SomatoriaPresitente{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SomatoriaPresitente that = (SomatoriaPresitente) o;
+        SumPresident that = (SumPresident) o;
         return codigoPleito.equals(that.codigoPleito) && codigoEleicao.equals(that.codigoEleicao) && codigoCargo.equals(that.codigoCargo) && siglaUF.equals(that.siglaUF) && dataTotalizacao.equals(that.dataTotalizacao) && quantidadeSecaoTotal.equals(that.quantidadeSecaoTotal) && quantidadeSecoesAptosTotal.equals(that.quantidadeSecoesAptosTotal) && quantidadeSecoesTotal.equals(that.quantidadeSecoesTotal) && quantidadeSecoesTotalAcumulado.equals(that.quantidadeSecoesTotalAcumulado) && percentualSecoesTotalAcumulado.equals(that.percentualSecoesTotalAcumulado) && quantidadeSecoesAptosTotal.equals(that.quantidadeSecoesAptosTotal) && quantidadeAptosTotalAcumulado.equals(that.quantidadeAptosTotalAcumulado) && quantidadeVotosTotal.equals(that.quantidadeVotosTotal) && quantidadeVotosTotalAcumulado.equals(that.quantidadeVotosTotalAcumulado) && quantidadeDeVotosConcorrentes.equals(that.quantidadeDeVotosConcorrentes) && quantidadeDeVotosConcorrentesAcumulado.equals(that.quantidadeDeVotosConcorrentesAcumulado) && lulaQuantidadeTotalDeVotos.equals(that.lulaQuantidadeTotalDeVotos) && lulaQuantidadeVotosTotAcumulado.equals(that.lulaQuantidadeVotosTotAcumulado) && lulaPercentualVotosTotalAcumulado.equals(that.lulaPercentualVotosTotalAcumulado) && jairBolsonaroQuantidadeVotosTotal.equals(that.jairBolsonaroQuantidadeVotosTotal) && jairBolsonaroQuantidadeVotosTotalAcumulado.equals(that.jairBolsonaroQuantidadeVotosTotalAcumulado) && jairBolsonaroPercentualVotosTotalAcumulado.equals(that.jairBolsonaroPercentualVotosTotalAcumulado) && brancoQuantidadeDeVotosAcumulado.equals(that.brancoQuantidadeDeVotosAcumulado) && brancoQuantidadeVotosTotalAcumulado.equals(that.brancoQuantidadeVotosTotalAcumulado) && brancPercentualVotosTotalAcumulado.equals(that.brancPercentualVotosTotalAcumulado) && nuloQuantidadeVotosTotal.equals(that.nuloQuantidadeVotosTotal) && nuloQuantidadeVotosTotalAcumulado.equals(that.nuloQuantidadeVotosTotalAcumulado) && nuloPercentualVotosTotalAcumulado.equals(that.nuloPercentualVotosTotalAcumulado);
     }
 

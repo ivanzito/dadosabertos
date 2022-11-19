@@ -1,15 +1,17 @@
 package br.com.tse.dadosabertos.batch.mapper;
 
-import br.com.tse.dadosabertos.batch.model.SomatoriaPresitente;
+import br.com.tse.dadosabertos.gateway.port.SumPresident;
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.item.file.transform.FieldSet;
+import org.springframework.stereotype.Service;
 
-public class SomatoriaPresidenteMapper<T> extends FlatItemMapperDefault<T> implements FieldSetMapper<T> {
+@Service
+public class SumPresidentMapper<T> extends FlatItemMapperDefault<T> implements FieldSetMapper<T> {
 
     @Override
     public T mapFieldSet(FieldSet fieldSet) {
-        SomatoriaPresitente dto = new SomatoriaPresitente();
+        SumPresident dto = new SumPresident();
         dto.setCodigoPleito(fieldSet.readInt(0));
         dto.setCodigoEleicao(fieldSet.readInt(1));
         dto.setCodigoCargo(fieldSet.readInt(2));
