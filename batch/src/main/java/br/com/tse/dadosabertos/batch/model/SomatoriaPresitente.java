@@ -1,4 +1,4 @@
-package br.com.tse.dadosabertos.batch.dadosabertos.model;
+package br.com.tse.dadosabertos.batch.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

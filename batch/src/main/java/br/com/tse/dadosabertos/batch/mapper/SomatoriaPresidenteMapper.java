@@ -1,6 +1,6 @@
-package br.com.tse.dadosabertos.batch.dadosabertos.mapper;
+package br.com.tse.dadosabertos.batch.mapper;
 
-import br.com.tse.dadosabertos.batch.dadosabertos.model.SomatoriaPresitente;
+import br.com.tse.dadosabertos.batch.model.SomatoriaPresitente;
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.item.file.transform.FieldSet;

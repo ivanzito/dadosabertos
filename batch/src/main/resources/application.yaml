@@ -1,0 +1,23 @@
+database:
+  username: pguser
+  password: pguser
+  url: jdbc:postgresql://localhost:5433/dadosabertos
+  driverClassName: org.postgresql.Driver
+
+
+batch:
+  table:
+    prefix: BATCH_
+  data:
+    source:
+      init: true
+  database:
+    incrementer:
+      class: org.springframework.jdbc.support.incrementer.PostgresSequenceMaxValueIncrementer
+  schema:
+    script: classpath:/org/springframework/batch/core/schema-postgresql.sql
+  drop:
+    script: classpath:/org/springframework/batch/core/schema-drop-postgresql.sql
+jdbc:
+  testWhileIdle: false
+  validationQuery:

@@ -1,5 +1,0 @@
-datasource:
-  username:"sa"
-  password:""
-  url=jdbc:"h2:file:/home/ivan/workspace/dadosabertos/temp"
-  driverClassName:"org.h2.Driver"

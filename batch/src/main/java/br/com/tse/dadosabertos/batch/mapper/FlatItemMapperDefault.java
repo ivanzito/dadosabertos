@@ -1,4 +1,4 @@
-package br.com.tse.dadosabertos.batch.dadosabertos.mapper;
+package br.com.tse.dadosabertos.batch.mapper;
 
 import org.springframework.batch.item.file.LineMapper;
 import org.springframework.batch.item.file.mapping.FieldSetMapper;

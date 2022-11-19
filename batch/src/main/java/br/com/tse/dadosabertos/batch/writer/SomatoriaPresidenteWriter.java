@@ -1,4 +1,4 @@
-package br.com.tse.dadosabertos.batch.dadosabertos.writer;
+package br.com.tse.dadosabertos.batch.writer;
 
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.support.transaction.TransactionAwareProxyFactory;

@@ -1,10 +1,10 @@
-package br.com.tse.dadosabertos.batch.dadosabertos.config;
+package br.com.tse.dadosabertos.batch.config;
 
-import br.com.tse.dadosabertos.batch.dadosabertos.mapper.FlatItemMapperDefault;
-import br.com.tse.dadosabertos.batch.dadosabertos.mapper.SomatoriaPresidenteMapper;
-import br.com.tse.dadosabertos.batch.dadosabertos.model.SomatoriaPresitente;
-import br.com.tse.dadosabertos.batch.dadosabertos.reader.SomatoriaPresidenteFlatItemReader;
-import br.com.tse.dadosabertos.batch.dadosabertos.writer.SomatoriaPresidenteWriter;
+import br.com.tse.dadosabertos.batch.mapper.FlatItemMapperDefault;
+import br.com.tse.dadosabertos.batch.mapper.SomatoriaPresidenteMapper;
+import br.com.tse.dadosabertos.batch.model.SomatoriaPresitente;
+import br.com.tse.dadosabertos.batch.reader.SomatoriaPresidenteFlatItemReader;
+import br.com.tse.dadosabertos.batch.writer.SomatoriaPresidenteWriter;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -16,9 +16,6 @@ import org.springframework.batch.item.file.FlatFileParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
-
 @Configuration
 public class BatchConfiguration {
 
@@ -27,6 +24,9 @@ public class BatchConfiguration {
 
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
+
+    //@Autowired
+    //private DataSource dataSource;
 
     @Bean
     public Job sampleJob(JobRepository jobRepository, Step step) {
@@ -53,7 +53,7 @@ public class BatchConfiguration {
     }
 
     @Bean
-    public Step somatoriaPresidente(DataSource dataSource) {
+    public Step somatoriaPresidente() {
         return stepBuilderFactory.get("first")
                 .<SomatoriaPresitente, SomatoriaPresitente>chunk(10)
                 .reader(reader())
@@ -64,5 +64,4 @@ public class BatchConfiguration {
                 .skip(FlatFileParseException.class)
                 .build();
     }
-
 }

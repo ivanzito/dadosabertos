@@ -1,7 +1,7 @@
-package br.com.tse.dadosabertos.batch.dadosabertos.reader;
+package br.com.tse.dadosabertos.batch.reader;
 
-import br.com.tse.dadosabertos.batch.dadosabertos.mapper.FlatItemMapperDefault;
-import br.com.tse.dadosabertos.batch.dadosabertos.model.SomatoriaPresitente;
+import br.com.tse.dadosabertos.batch.mapper.FlatItemMapperDefault;
+import br.com.tse.dadosabertos.batch.model.SomatoriaPresitente;
 
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.file.FlatFileItemReader;
