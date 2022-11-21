@@ -17,6 +17,11 @@ database:
   driverClassName: org.postgresql.Driver
 
 spring:
+  data:
+    mongodb:
+      host: localhost
+      database: dados-abertos
+      port: 27018
   application:
     name: dados-abertos
 

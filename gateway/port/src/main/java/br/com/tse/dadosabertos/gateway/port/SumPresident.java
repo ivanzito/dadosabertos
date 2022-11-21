@@ -1,9 +1,10 @@
 package br.com.tse.dadosabertos.gateway.port;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class SumPresident {
+public class SumPresident implements Serializable {
     private Integer codigoPleito;
     private Integer codigoEleicao;
     private Integer codigoCargo;

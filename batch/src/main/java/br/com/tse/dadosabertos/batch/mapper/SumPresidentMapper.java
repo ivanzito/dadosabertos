@@ -41,8 +41,6 @@ public class SumPresidentMapper<T> extends FlatItemMapperDefault<T> implements F
         dto.setNuloQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(26));
         dto.setNuloPercentualVotosTotalAcumulado(fieldSet.readString(27));
 
-        System.out.println(dto);
-
         return (T) dto;
     }
 

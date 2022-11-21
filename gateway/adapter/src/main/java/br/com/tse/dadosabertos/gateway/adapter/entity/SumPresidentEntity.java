@@ -1,22 +1,18 @@
 package br.com.tse.dadosabertos.gateway.adapter.entity;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import br.com.tse.dadosabertos.gateway.port.SumPresident;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
-
-@Entity
+@Document(collection = "sumPresident")
 public class SumPresidentEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
 
-    public Long getId() {
-        return id;
+    private final SumPresident sumPresident;
+
+    public SumPresidentEntity(SumPresident sumPresident) {
+        this.sumPresident = sumPresident;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public SumPresident getSumPresident() {
+        return sumPresident;
     }
 }

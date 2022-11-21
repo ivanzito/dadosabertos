@@ -29,6 +29,18 @@ services:
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_PATHS_PROVISIONING=/home/ivan/workspace/grafana
 
+  mongo:
+    image: mongo
+    container_name: mongo
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: root
+    #  MONGO_INITDB_ROOT_PASSWORD: MongoDB2019!
+    ports:
+      - "27018:27017"
+    volumes:
+      - /home/ivan/workspace/volumes/mongo:/data/db
+    network_mode: bridge
+
   postgres:
     image: postgres
     container_name: postgres
