@@ -1,10 +1,27 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+
+
+
+
 database:
   username: pguser
   password: pguser
   url: jdbc:postgresql://localhost:5433/dadosabertos
   driverClassName: org.postgresql.Driver
 
-
+spring:
+  application:
+    name: dados-abertos
+  batch:
+    job:
+      enabled: false
 batch:
   table:
     prefix: BATCH_
