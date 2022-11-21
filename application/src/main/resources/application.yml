@@ -19,6 +19,8 @@ database:
 spring:
   application:
     name: dados-abertos
+
+
   batch:
     job:
       enabled: false

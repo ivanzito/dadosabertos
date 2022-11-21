@@ -20,6 +20,6 @@ public class SumPresidentRepositoryImpl implements SumPresidentRepository {
     @Override
     public void persist(SumPresident sumPresident) {
         SumPresidentEntity entity = mapPresident.map(sumPresident);
-        dao.save(entity);
+        //dao.save(entity);
     }
 }

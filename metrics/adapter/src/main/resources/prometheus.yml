@@ -34,7 +34,7 @@ scrape_configs:
     static_configs:
       - targets: ['172.17.0.1:9091']
 
-  - job_name: 'dados-abertos'
+  - job_name: 'dados abertos web'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 15s
     static_configs:
