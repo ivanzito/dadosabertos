@@ -5,7 +5,7 @@ layout: default
 # Contexto
 
 Este projeto foi criado para aprender extrair dados disponibilizados no TSE. Por hora,
-foi extraído apenas os dados das eleições presidenciais do segundo turno de 2022.
+foi extraído apenas os dados das eleições presidenciais do segundo turno de 2022. Neste case a importação dos dados, são efetuados assim que a aplicação faz o startup. Não é um cenário comum, mas, por hora, não há a necessidade de criar um cronjob para ser executado.
 
 ## Motivação
 
@@ -73,119 +73,84 @@ Usado em processos êfemeros(o que chamamos de batch), trabalha de forma contrá
 
 ## Grafana
 
-Grafana é onde são criados os dashboards com as métricas exportadas pelo Prometheus, para isso, deve-se configurar o Grafana para receber as métricas do Prometheus
+Grafana é onde são criados os dashboards com as métricas exportadas pelo Prometheus, para isso, deve-se configurar o Grafana para receber as métricas do Prometheus, ou seja fazer com que o Prometheus seja um datasource do Grafana.
 
 ![Integração com o Prometheus](/assets/images/grafana-connection.png)
 
-Uma boa dica é obter dashboards prontos do site do Prometheus e importá-los por seu id
-- Vá no +
-- Em Grafana.com Dashboard inclua o id
-- No caso de aplicações com Spring + Actuator, já tem um dashboard bem completinho **id** __234__
+Uma boa dica é obter dashboards prontos do site do Grafana e importá-los por seu id
+ou json, para isso acesse Grafana.com e procure um dashboard. Exemplo:
+
+![Integração com o Prometheus](/assets/images/sample-dashboard.png)
 
 
+## Rodando tudo localmente
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Como atualmente todos os devs fazem é subir um docker/docker-compose. Abaixo segue o exemplo que eu fiz:
+**Sobre a integração dos containers**, vi muito sobre problemas de como conectar os containers, já que não se consegue usar o localhost, para passar por esse problema conectei os serviços pelo ip criado na rede do docker
 
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
+```shell
+docker network ls #exibe suas networks
+docker network inspect bridge #exibe informações sobre o Gateway e os ips dos outros containers
 ```
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
+Assim ficou o docker-compose
+
+```yaml
+version: '3.3'
+services:
+
+  prometheus:
+    image: prom/prometheus:v2.7.2
+    container_name: 'prometheus'
+    network_mode: bridge
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./metrics/adapter/src/main/resources/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  pushgateway:
+    image: prom/pushgateway:v0.6.0
+    container_name: 'pushgateway'
+    network_mode: bridge
+    ports:
+      - '9091:9091'
+
+  grafana:
+    image: grafana/grafana:6.0.2
+    container_name: 'grafana'
+    network_mode: bridge
+    ports:
+      - '3000:3000'
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_NAME=Main Org.
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_PATHS_PROVISIONING=/home/ivan/workspace/grafana
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - /home/ivan/workspace/volumes/mongo:/data/db
+    network_mode: bridge
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    network_mode: bridge
+    volumes:
+      - ./gateway/adapter/src/main/resources/spring-data.sql:/docker-entrypoint-initdb.d/db.sql
+      - /home/ivan/workspace/volumes/postgresql:/private/var/lib/postgresql
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pguser
+      POSTGRES_DB: dadosabertos
 ```
 
-#### Header 4
+## Dev
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+Como esta página ficou muito extensa, criarei uma parte para devs, sobre as métricas e implementação delas. Esta página acabou ficando mais com a parte de Ops.
