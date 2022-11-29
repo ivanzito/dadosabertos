@@ -14,7 +14,7 @@ public class SumPresident implements Serializable {
     private BigDecimal quantidadeSecoesAptosTotal;
     private BigDecimal quantidadeSecoesTotal;
     private BigDecimal quantidadeSecoesTotalAcumulado;
-    private String percentualSecoesTotalAcumulado;
+    private BigDecimal percentualSecoesTotalAcumulado;
     private BigDecimal quantidadeAptosTotal;
     private BigDecimal quantidadeAptosTotalAcumulado;
     private BigDecimal quantidadeVotosTotal;
@@ -23,16 +23,16 @@ public class SumPresident implements Serializable {
     private BigDecimal quantidadeDeVotosConcorrentesAcumulado;
     private BigDecimal lulaQuantidadeTotalDeVotos;
     private BigDecimal lulaQuantidadeVotosTotAcumulado;
-    private String lulaPercentualVotosTotalAcumulado;
+    private BigDecimal lulaPercentualVotosTotalAcumulado;
     private BigDecimal jairBolsonaroQuantidadeVotosTotal;
     private BigDecimal jairBolsonaroQuantidadeVotosTotalAcumulado;
-    private String jairBolsonaroPercentualVotosTotalAcumulado;
-    private BigDecimal brancoQuantidadeDeVotosAcumulado;
+    private BigDecimal jairBolsonaroPercentualVotosTotalAcumulado;
+    private BigDecimal brancoQuantidadeDeVotos;
     private BigDecimal brancoQuantidadeVotosTotalAcumulado;
-    private String brancPercentualVotosTotalAcumulado;
+    private BigDecimal brancPercentualVotosTotalAcumulado;
     private BigDecimal nuloQuantidadeVotosTotal;
     private BigDecimal nuloQuantidadeVotosTotalAcumulado;
-    private String nuloPercentualVotosTotalAcumulado;
+    private BigDecimal nuloPercentualVotosTotalAcumulado;
 
     public Integer getCodigoPleito() {
         return codigoPleito;
@@ -106,11 +106,11 @@ public class SumPresident implements Serializable {
         this.quantidadeSecoesTotalAcumulado = quantidadeSecoesTotalAcumulado;
     }
 
-    public String getPercentualSecoesTotalAcumulado() {
+    public BigDecimal getPercentualSecoesTotalAcumulado() {
         return percentualSecoesTotalAcumulado;
     }
 
-    public void setPercentualSecoesTotalAcumulado(String percentualSecoesTotalAcumulado) {
+    public void setPercentualSecoesTotalAcumulado(BigDecimal percentualSecoesTotalAcumulado) {
         this.percentualSecoesTotalAcumulado = percentualSecoesTotalAcumulado;
     }
 
@@ -178,11 +178,11 @@ public class SumPresident implements Serializable {
         this.lulaQuantidadeVotosTotAcumulado = lulaQuantidadeVotosTotAcumulado;
     }
 
-    public String getLulaPercentualVotosTotalAcumulado() {
+    public BigDecimal getLulaPercentualVotosTotalAcumulado() {
         return lulaPercentualVotosTotalAcumulado;
     }
 
-    public void setLulaPercentualVotosTotalAcumulado(String lulaPercentualVotosTotalAcumulado) {
+    public void setLulaPercentualVotosTotalAcumulado(BigDecimal lulaPercentualVotosTotalAcumulado) {
         this.lulaPercentualVotosTotalAcumulado = lulaPercentualVotosTotalAcumulado;
     }
 
@@ -202,20 +202,20 @@ public class SumPresident implements Serializable {
         this.jairBolsonaroQuantidadeVotosTotalAcumulado = jairBolsonaroQuantidadeVotosTotalAcumulado;
     }
 
-    public String getJairBolsonaroPercentualVotosTotalAcumulado() {
+    public BigDecimal getJairBolsonaroPercentualVotosTotalAcumulado() {
         return jairBolsonaroPercentualVotosTotalAcumulado;
     }
 
-    public void setJairBolsonaroPercentualVotosTotalAcumulado(String jairBolsonaroPercentualVotosTotalAcumulado) {
+    public void setJairBolsonaroPercentualVotosTotalAcumulado(BigDecimal jairBolsonaroPercentualVotosTotalAcumulado) {
         this.jairBolsonaroPercentualVotosTotalAcumulado = jairBolsonaroPercentualVotosTotalAcumulado;
     }
 
-    public BigDecimal getBrancoQuantidadeDeVotosAcumulado() {
-        return brancoQuantidadeDeVotosAcumulado;
+    public BigDecimal getBrancoQuantidadeDeVotos() {
+        return brancoQuantidadeDeVotos;
     }
 
-    public void setBrancoQuantidadeDeVotosAcumulado(BigDecimal brancoQuantidadeDeVotosAcumulado) {
-        this.brancoQuantidadeDeVotosAcumulado = brancoQuantidadeDeVotosAcumulado;
+    public void setBrancoQuantidadeDeVotos(BigDecimal brancoQuantidadeDeVotos) {
+        this.brancoQuantidadeDeVotos = brancoQuantidadeDeVotos;
     }
 
     public BigDecimal getBrancoQuantidadeVotosTotalAcumulado() {
@@ -226,11 +226,11 @@ public class SumPresident implements Serializable {
         this.brancoQuantidadeVotosTotalAcumulado = brancoQuantidadeVotosTotalAcumulado;
     }
 
-    public String getBrancPercentualVotosTotalAcumulado() {
+    public BigDecimal getBrancPercentualVotosTotalAcumulado() {
         return brancPercentualVotosTotalAcumulado;
     }
 
-    public void setBrancPercentualVotosTotalAcumulado(String brancPercentualVotosTotalAcumulado) {
+    public void setBrancPercentualVotosTotalAcumulado(BigDecimal brancPercentualVotosTotalAcumulado) {
         this.brancPercentualVotosTotalAcumulado = brancPercentualVotosTotalAcumulado;
     }
 
@@ -250,46 +250,12 @@ public class SumPresident implements Serializable {
         this.nuloQuantidadeVotosTotalAcumulado = nuloQuantidadeVotosTotalAcumulado;
     }
 
-    public String getNuloPercentualVotosTotalAcumulado() {
+    public BigDecimal getNuloPercentualVotosTotalAcumulado() {
         return nuloPercentualVotosTotalAcumulado;
     }
 
-    public void setNuloPercentualVotosTotalAcumulado(String nuloPercentualVotosTotalAcumulado) {
+    public void setNuloPercentualVotosTotalAcumulado(BigDecimal nuloPercentualVotosTotalAcumulado) {
         this.nuloPercentualVotosTotalAcumulado = nuloPercentualVotosTotalAcumulado;
-    }
-
-    @Override
-    public String toString() {
-        return "SomatoriaPresitente{" +
-                "codigoPleito=" + codigoPleito +
-                ", codigoEleicao=" + codigoEleicao +
-                ", codigoCargo=" + codigoCargo +
-                ", siglaUF='" + siglaUF + '\'' +
-                ", dataTotalizacao='" + dataTotalizacao + '\'' +
-                ", quantidadeSecaoTotal=" + quantidadeSecaoTotal +
-                ", quantidadeSecoesAptosTotal=" + quantidadeSecoesAptosTotal +
-                ", quantidadeSecoesTotal=" + quantidadeSecoesTotal +
-                ", quantidadeSecoesTotalAcumulado=" + quantidadeSecoesTotalAcumulado +
-                ", percentualSecoesTotalAcumulado=" + percentualSecoesTotalAcumulado +
-                ", quantidadeAptosTotal='" + quantidadeAptosTotal + '\'' +
-                ", quantidadeAptosTotalAcumulado=" + quantidadeAptosTotalAcumulado +
-                ", quantidadeVotosTotal=" + quantidadeVotosTotal +
-                ", quantidadeVotosTotalAcumulado=" + quantidadeVotosTotalAcumulado +
-                ", quantidadeDeVotosConcorrentes=" + quantidadeDeVotosConcorrentes +
-                ", quantidadeDeVotosConcorrentesAcumulado=" + quantidadeDeVotosConcorrentesAcumulado +
-                ", lulaQuantidadeTotalDeVotos=" + lulaQuantidadeTotalDeVotos +
-                ", lulaQuantidadeVotosTotAcumulado=" + lulaQuantidadeVotosTotAcumulado +
-                ", lulaPercentualVotosTotalAcumulado=" + lulaPercentualVotosTotalAcumulado +
-                ", jairBolsonaroQuantidadeVotosTotal=" + jairBolsonaroQuantidadeVotosTotal +
-                ", jairBolsonaroQuantidadeVotosTotalAcumulado=" + jairBolsonaroQuantidadeVotosTotalAcumulado +
-                ", jairBolsonaroPercentualVotosTotalAcumulado=" + jairBolsonaroPercentualVotosTotalAcumulado +
-                ", brancoQuantidadeDeVotosAcumulado=" + brancoQuantidadeDeVotosAcumulado +
-                ", brancoQuantidadeVotosTotalAcumulado=" + brancoQuantidadeVotosTotalAcumulado +
-                ", brancPercentualVotosTotalAcumulado=" + brancPercentualVotosTotalAcumulado +
-                ", nuloQuantidadeVotosTotal=" + nuloQuantidadeVotosTotal +
-                ", nuloQuantidadeVotosTotalAcumulado=" + nuloQuantidadeVotosTotalAcumulado +
-                ", nuloPercentualVotosTotalAcumulado=" + nuloPercentualVotosTotalAcumulado +
-                '}';
     }
 
     @Override
@@ -297,11 +263,11 @@ public class SumPresident implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SumPresident that = (SumPresident) o;
-        return codigoPleito.equals(that.codigoPleito) && codigoEleicao.equals(that.codigoEleicao) && codigoCargo.equals(that.codigoCargo) && siglaUF.equals(that.siglaUF) && dataTotalizacao.equals(that.dataTotalizacao) && quantidadeSecaoTotal.equals(that.quantidadeSecaoTotal) && quantidadeSecoesAptosTotal.equals(that.quantidadeSecoesAptosTotal) && quantidadeSecoesTotal.equals(that.quantidadeSecoesTotal) && quantidadeSecoesTotalAcumulado.equals(that.quantidadeSecoesTotalAcumulado) && percentualSecoesTotalAcumulado.equals(that.percentualSecoesTotalAcumulado) && quantidadeSecoesAptosTotal.equals(that.quantidadeSecoesAptosTotal) && quantidadeAptosTotalAcumulado.equals(that.quantidadeAptosTotalAcumulado) && quantidadeVotosTotal.equals(that.quantidadeVotosTotal) && quantidadeVotosTotalAcumulado.equals(that.quantidadeVotosTotalAcumulado) && quantidadeDeVotosConcorrentes.equals(that.quantidadeDeVotosConcorrentes) && quantidadeDeVotosConcorrentesAcumulado.equals(that.quantidadeDeVotosConcorrentesAcumulado) && lulaQuantidadeTotalDeVotos.equals(that.lulaQuantidadeTotalDeVotos) && lulaQuantidadeVotosTotAcumulado.equals(that.lulaQuantidadeVotosTotAcumulado) && lulaPercentualVotosTotalAcumulado.equals(that.lulaPercentualVotosTotalAcumulado) && jairBolsonaroQuantidadeVotosTotal.equals(that.jairBolsonaroQuantidadeVotosTotal) && jairBolsonaroQuantidadeVotosTotalAcumulado.equals(that.jairBolsonaroQuantidadeVotosTotalAcumulado) && jairBolsonaroPercentualVotosTotalAcumulado.equals(that.jairBolsonaroPercentualVotosTotalAcumulado) && brancoQuantidadeDeVotosAcumulado.equals(that.brancoQuantidadeDeVotosAcumulado) && brancoQuantidadeVotosTotalAcumulado.equals(that.brancoQuantidadeVotosTotalAcumulado) && brancPercentualVotosTotalAcumulado.equals(that.brancPercentualVotosTotalAcumulado) && nuloQuantidadeVotosTotal.equals(that.nuloQuantidadeVotosTotal) && nuloQuantidadeVotosTotalAcumulado.equals(that.nuloQuantidadeVotosTotalAcumulado) && nuloPercentualVotosTotalAcumulado.equals(that.nuloPercentualVotosTotalAcumulado);
+        return Objects.equals(codigoPleito, that.codigoPleito) && Objects.equals(codigoEleicao, that.codigoEleicao) && Objects.equals(codigoCargo, that.codigoCargo) && Objects.equals(siglaUF, that.siglaUF) && Objects.equals(dataTotalizacao, that.dataTotalizacao) && Objects.equals(quantidadeSecaoTotal, that.quantidadeSecaoTotal) && Objects.equals(quantidadeSecoesAptosTotal, that.quantidadeSecoesAptosTotal) && Objects.equals(quantidadeSecoesTotal, that.quantidadeSecoesTotal) && Objects.equals(quantidadeSecoesTotalAcumulado, that.quantidadeSecoesTotalAcumulado) && Objects.equals(percentualSecoesTotalAcumulado, that.percentualSecoesTotalAcumulado) && Objects.equals(quantidadeAptosTotal, that.quantidadeAptosTotal) && Objects.equals(quantidadeAptosTotalAcumulado, that.quantidadeAptosTotalAcumulado) && Objects.equals(quantidadeVotosTotal, that.quantidadeVotosTotal) && Objects.equals(quantidadeVotosTotalAcumulado, that.quantidadeVotosTotalAcumulado) && Objects.equals(quantidadeDeVotosConcorrentes, that.quantidadeDeVotosConcorrentes) && Objects.equals(quantidadeDeVotosConcorrentesAcumulado, that.quantidadeDeVotosConcorrentesAcumulado) && Objects.equals(lulaQuantidadeTotalDeVotos, that.lulaQuantidadeTotalDeVotos) && Objects.equals(lulaQuantidadeVotosTotAcumulado, that.lulaQuantidadeVotosTotAcumulado) && Objects.equals(lulaPercentualVotosTotalAcumulado, that.lulaPercentualVotosTotalAcumulado) && Objects.equals(jairBolsonaroQuantidadeVotosTotal, that.jairBolsonaroQuantidadeVotosTotal) && Objects.equals(jairBolsonaroQuantidadeVotosTotalAcumulado, that.jairBolsonaroQuantidadeVotosTotalAcumulado) && Objects.equals(jairBolsonaroPercentualVotosTotalAcumulado, that.jairBolsonaroPercentualVotosTotalAcumulado) && Objects.equals(brancoQuantidadeDeVotos, that.brancoQuantidadeDeVotos) && Objects.equals(brancoQuantidadeVotosTotalAcumulado, that.brancoQuantidadeVotosTotalAcumulado) && Objects.equals(brancPercentualVotosTotalAcumulado, that.brancPercentualVotosTotalAcumulado) && Objects.equals(nuloQuantidadeVotosTotal, that.nuloQuantidadeVotosTotal) && Objects.equals(nuloQuantidadeVotosTotalAcumulado, that.nuloQuantidadeVotosTotalAcumulado) && Objects.equals(nuloPercentualVotosTotalAcumulado, that.nuloPercentualVotosTotalAcumulado);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codigoPleito, codigoEleicao, codigoCargo, siglaUF, dataTotalizacao, quantidadeSecaoTotal, quantidadeSecoesAptosTotal, quantidadeSecoesTotal, quantidadeSecoesTotalAcumulado, percentualSecoesTotalAcumulado, quantidadeSecoesAptosTotal, quantidadeAptosTotalAcumulado, quantidadeVotosTotal, quantidadeVotosTotalAcumulado, quantidadeDeVotosConcorrentes, quantidadeDeVotosConcorrentesAcumulado, lulaQuantidadeTotalDeVotos, lulaQuantidadeVotosTotAcumulado, lulaPercentualVotosTotalAcumulado, jairBolsonaroQuantidadeVotosTotal, jairBolsonaroQuantidadeVotosTotalAcumulado, jairBolsonaroPercentualVotosTotalAcumulado, brancoQuantidadeDeVotosAcumulado, brancoQuantidadeVotosTotalAcumulado, brancPercentualVotosTotalAcumulado, nuloQuantidadeVotosTotal, nuloQuantidadeVotosTotalAcumulado, nuloPercentualVotosTotalAcumulado);
+        return Objects.hash(codigoPleito, codigoEleicao, codigoCargo, siglaUF, dataTotalizacao, quantidadeSecaoTotal, quantidadeSecoesAptosTotal, quantidadeSecoesTotal, quantidadeSecoesTotalAcumulado, percentualSecoesTotalAcumulado, quantidadeAptosTotal, quantidadeAptosTotalAcumulado, quantidadeVotosTotal, quantidadeVotosTotalAcumulado, quantidadeDeVotosConcorrentes, quantidadeDeVotosConcorrentesAcumulado, lulaQuantidadeTotalDeVotos, lulaQuantidadeVotosTotAcumulado, lulaPercentualVotosTotalAcumulado, jairBolsonaroQuantidadeVotosTotal, jairBolsonaroQuantidadeVotosTotalAcumulado, jairBolsonaroPercentualVotosTotalAcumulado, brancoQuantidadeDeVotos, brancoQuantidadeVotosTotalAcumulado, brancPercentualVotosTotalAcumulado, nuloQuantidadeVotosTotal, nuloQuantidadeVotosTotalAcumulado, nuloPercentualVotosTotalAcumulado);
     }
 }

@@ -21,25 +21,29 @@ public class SumPresidentMapper<T> extends FlatItemMapperDefault<T> implements F
         dto.setQuantidadeAptosTotal(fieldSet.readBigDecimal(6));
         dto.setQuantidadeSecoesTotal(fieldSet.readBigDecimal(7));
         dto.setQuantidadeSecoesTotalAcumulado(fieldSet.readBigDecimal(8));
-        dto.setPercentualSecoesTotalAcumulado(fieldSet.readString(9));
-        dto.setQuantidadeAptosTotal(fieldSet.readBigDecimal(10));
-        dto.setQuantidadeAptosTotalAcumulado(fieldSet.readBigDecimal(11));
-        dto.setQuantidadeVotosTotal(fieldSet.readBigDecimal(12));
-        dto.setQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(13));
-        dto.setQuantidadeDeVotosConcorrentes(fieldSet.readBigDecimal(14));
-        dto.setQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(15));
-        dto.setLulaQuantidadeTotalDeVotos(fieldSet.readBigDecimal(16));
-        dto.setLulaQuantidadeVotosTotAcumulado(fieldSet.readBigDecimal(17));
-        dto.setLulaPercentualVotosTotalAcumulado(fieldSet.readString(18));
-        dto.setJairBolsonaroQuantidadeVotosTotal(fieldSet.readBigDecimal(19));
-        dto.setJairBolsonaroQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(20));
-        dto.setJairBolsonaroPercentualVotosTotalAcumulado(fieldSet.readString(21));
-        dto.setBrancoQuantidadeDeVotosAcumulado(fieldSet.readBigDecimal(22));
-        dto.setBrancoQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(23));
-        dto.setBrancPercentualVotosTotalAcumulado(fieldSet.readString(24));
-        dto.setNuloQuantidadeVotosTotal(fieldSet.readBigDecimal(25));
-        dto.setNuloQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(26));
-        dto.setNuloPercentualVotosTotalAcumulado(fieldSet.readString(27));
+        dto.setPercentualSecoesTotalAcumulado(fieldSet.readBigDecimal(9));
+        //dto.setQuantidadeAptosTotal(fieldSet.readBigDecimal(9));
+        dto.setQuantidadeAptosTotalAcumulado(fieldSet.readBigDecimal(10));
+        dto.setQuantidadeVotosTotal(fieldSet.readBigDecimal(11));
+        dto.setQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(12));
+        dto.setQuantidadeDeVotosConcorrentes(fieldSet.readBigDecimal(13));
+        dto.setQuantidadeDeVotosConcorrentesAcumulado(fieldSet.readBigDecimal(14));
+
+        dto.setLulaQuantidadeTotalDeVotos(fieldSet.readBigDecimal(15));
+        dto.setLulaQuantidadeVotosTotAcumulado(fieldSet.readBigDecimal(16));
+        dto.setLulaPercentualVotosTotalAcumulado(fieldSet.readBigDecimal(17));
+
+        dto.setJairBolsonaroQuantidadeVotosTotal(fieldSet.readBigDecimal(18));
+        dto.setJairBolsonaroQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(19));
+        dto.setJairBolsonaroPercentualVotosTotalAcumulado(fieldSet.readBigDecimal(20));
+
+        dto.setBrancoQuantidadeDeVotos(fieldSet.readBigDecimal(21));
+        dto.setBrancoQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(22));
+        dto.setBrancPercentualVotosTotalAcumulado(fieldSet.readBigDecimal(23));
+
+        dto.setNuloQuantidadeVotosTotal(fieldSet.readBigDecimal(24));
+        dto.setNuloQuantidadeVotosTotalAcumulado(fieldSet.readBigDecimal(25));
+        dto.setNuloPercentualVotosTotalAcumulado(fieldSet.readBigDecimal(26));
 
 
         return (T) dto;

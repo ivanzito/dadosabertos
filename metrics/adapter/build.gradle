@@ -2,4 +2,7 @@ dependencies {
     implementation project(':batch')
     implementation project(':gateway:adapter')
     implementation project(':metrics:port')
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 }

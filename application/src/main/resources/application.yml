@@ -26,9 +26,9 @@ spring:
     name: dados-abertos
 
 
-  batch:
-    job:
-      enabled: false
+#  batch:
+#    job:
+#      enabled: false
 batch:
   table:
     prefix: BATCH_
