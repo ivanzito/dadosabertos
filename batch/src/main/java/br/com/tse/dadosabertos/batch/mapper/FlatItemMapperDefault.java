@@ -2,12 +2,13 @@ package br.com.tse.dadosabertos.batch.mapper;
 
 import org.springframework.batch.item.file.LineMapper;
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
+import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.batch.item.file.transform.LineTokenizer;
 import org.springframework.beans.factory.InitializingBean;
 
 public abstract class FlatItemMapperDefault<T> implements LineMapper<T>, InitializingBean {
 
-    private LineTokenizer tokenizer;
+    private DelimitedLineTokenizer tokenizer;
 
     private FieldSetMapper<T> fieldSetMapper;
 
@@ -15,7 +16,7 @@ public abstract class FlatItemMapperDefault<T> implements LineMapper<T>, Initial
         return fieldSetMapper.mapFieldSet(tokenizer.tokenize(line));
     }
 
-    public void setLineTokenizer(LineTokenizer tokenizer) {
+    public void setLineTokenizer(DelimitedLineTokenizer tokenizer) {
         this.tokenizer = tokenizer;
     }
 

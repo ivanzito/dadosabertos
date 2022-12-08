@@ -3,8 +3,12 @@ package br.com.tse.dadosabertos.gateway.port;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
+import java.util.function.Function;
 
 public class SumPresident implements Serializable {
+
+    //private MathContext context = new MathContext(7);
+
     private Integer codigoPleito;
     private Integer codigoEleicao;
     private Integer codigoCargo;
@@ -102,16 +106,16 @@ public class SumPresident implements Serializable {
         return quantidadeSecoesTotalAcumulado;
     }
 
-    public void setQuantidadeSecoesTotalAcumulado(BigDecimal quantidadeSecoesTotalAcumulado) {
-        this.quantidadeSecoesTotalAcumulado = quantidadeSecoesTotalAcumulado;
+    public void setQuantidadeSecoesTotalAcumulado(String quantidadeSecoesTotalAcumulado) {
+        this.quantidadeSecoesTotalAcumulado = fnTransform.apply(quantidadeSecoesTotalAcumulado);
     }
 
     public BigDecimal getPercentualSecoesTotalAcumulado() {
         return percentualSecoesTotalAcumulado;
     }
 
-    public void setPercentualSecoesTotalAcumulado(BigDecimal percentualSecoesTotalAcumulado) {
-        this.percentualSecoesTotalAcumulado = percentualSecoesTotalAcumulado;
+    public void setPercentualSecoesTotalAcumulado(String percentualSecoesTotalAcumulado) {
+        this.percentualSecoesTotalAcumulado = fnTransform.apply(percentualSecoesTotalAcumulado);
     }
 
     public BigDecimal getQuantidadeAptosTotal() {
@@ -182,8 +186,8 @@ public class SumPresident implements Serializable {
         return lulaPercentualVotosTotalAcumulado;
     }
 
-    public void setLulaPercentualVotosTotalAcumulado(BigDecimal lulaPercentualVotosTotalAcumulado) {
-        this.lulaPercentualVotosTotalAcumulado = lulaPercentualVotosTotalAcumulado;
+    public void setLulaPercentualVotosTotalAcumulado(String lulaPercentualVotosTotalAcumulado) {
+        this.lulaPercentualVotosTotalAcumulado = fnTransform.apply(lulaPercentualVotosTotalAcumulado);
     }
 
     public BigDecimal getJairBolsonaroQuantidadeVotosTotal() {
@@ -206,8 +210,8 @@ public class SumPresident implements Serializable {
         return jairBolsonaroPercentualVotosTotalAcumulado;
     }
 
-    public void setJairBolsonaroPercentualVotosTotalAcumulado(BigDecimal jairBolsonaroPercentualVotosTotalAcumulado) {
-        this.jairBolsonaroPercentualVotosTotalAcumulado = jairBolsonaroPercentualVotosTotalAcumulado;
+    public void setJairBolsonaroPercentualVotosTotalAcumulado(String jairBolsonaroPercentualVotosTotalAcumulado) {
+        this.jairBolsonaroPercentualVotosTotalAcumulado = fnTransform.apply(jairBolsonaroPercentualVotosTotalAcumulado);
     }
 
     public BigDecimal getBrancoQuantidadeDeVotos() {
@@ -230,8 +234,8 @@ public class SumPresident implements Serializable {
         return brancPercentualVotosTotalAcumulado;
     }
 
-    public void setBrancPercentualVotosTotalAcumulado(BigDecimal brancPercentualVotosTotalAcumulado) {
-        this.brancPercentualVotosTotalAcumulado = brancPercentualVotosTotalAcumulado;
+    public void setBrancPercentualVotosTotalAcumulado(String brancPercentualVotosTotalAcumulado) {
+        this.brancPercentualVotosTotalAcumulado = fnTransform.apply(brancPercentualVotosTotalAcumulado);
     }
 
     public BigDecimal getNuloQuantidadeVotosTotal() {
@@ -254,9 +258,12 @@ public class SumPresident implements Serializable {
         return nuloPercentualVotosTotalAcumulado;
     }
 
-    public void setNuloPercentualVotosTotalAcumulado(BigDecimal nuloPercentualVotosTotalAcumulado) {
-        this.nuloPercentualVotosTotalAcumulado = nuloPercentualVotosTotalAcumulado;
+    public void setNuloPercentualVotosTotalAcumulado(String nuloPercentualVotosTotalAcumulado) {
+        this.nuloPercentualVotosTotalAcumulado = fnTransform.apply(nuloPercentualVotosTotalAcumulado);
     }
+
+    //Function<String, BigDecimal> fnTransform = (data) -> new BigDecimal(data.trim().replace(",", "."), context);
+    Function<String, BigDecimal> fnTransform = (data) -> new BigDecimal(data.trim().replace(",", "."));
 
     @Override
     public boolean equals(Object o) {

@@ -2,7 +2,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "info, prometheus, health"
   endpoint:
     health:
       show-details: "ALWAYS"
@@ -19,6 +19,7 @@ database:
 spring:
   data:
     mongodb:
+      auto-index-creation: false
       host: localhost
       database: dados-abertos
       port: 27018
